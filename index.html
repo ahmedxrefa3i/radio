@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>راديو درايف | البث المباشر</title>
+    <title>RadioDrive | Live Stream</title>
     <style>
-        /* الأساسيات */
+        /* Base Styles */
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #3a3a3a, #2b2b2b); /* تدرج رصاصي/رمادي داكن */
+            background: linear-gradient(135deg, #2b2b2b, #1a1a1a);
             font-family: 'Arial', sans-serif;
             height: 100vh;
             display: flex;
@@ -20,7 +20,7 @@
             color: white;
         }
 
-        /* علامات إذاعية خفيفة في الخلفية */
+        /* Radio Icons Background (Larger) */
         body::before {
             content: "";
             position: absolute;
@@ -29,44 +29,60 @@
             right: 0;
             bottom: 0;
             background-image: 
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 100 100"><text x="50%" y="50%" font-family="Arial" font-size="14" fill="rgba(255,255,255,0.03)" text-anchor="middle" dominant-baseline="middle">🎙️</text></svg>'),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 100 100"><text x="50%" y="50%" font-family="Arial" font-size="18" fill="rgba(255,255,255,0.02)" text-anchor="middle" dominant-baseline="middle">📻</text></svg>');
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100"><text x="50%" y="50%" font-family="Arial" font-size="30" fill="rgba(255,255,255,0.05)" text-anchor="middle" dominant-baseline="middle">🎙️</text></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="250" height="250" viewBox="0 0 100 100"><text x="50%" y="50%" font-family="Arial" font-size="40" fill="rgba(255,255,255,0.03)" text-anchor="middle" dominant-baseline="middle">📻</text></svg>');
             background-repeat: repeat;
-            opacity: 0.5;
+            opacity: 0.6;
             z-index: -1;
         }
 
-        /* العنوان بتدرج رصاصي فاتح */
+        /* Silver Glow Title */
         h1 {
             margin: 0 0 30px 0;
-            font-size: 2.2rem;
-            color: #e0e0e0; /* رمادي فاتح */
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            font-size: 2.5rem;
+            color: #e0e0e0;
+            text-shadow: 
+                0 0 10px rgba(255, 255, 255, 0.7),
+                0 0 20px rgba(192, 192, 192, 0.5);
             position: relative;
-            display: inline-block;
+            animation: pulse 2s infinite alternate;
         }
 
-        h1::after {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #a0a0a0, transparent); /* خط تفصيل رصاصي */
+        @keyframes pulse {
+            from { text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); }
+            to { text-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 30px silver; }
         }
 
-        /* إطار الفيديو بتأثير معدني */
+        /* Metallic Frame with Shine */
         .video-container {
             width: 90%;
             max-width: 800px;
-            border-radius: 5px;
+            border-radius: 8px;
             overflow: hidden;
             box-shadow: 
-                0 0 15px rgba(0, 0, 0, 0.7),
-                inset 0 0 10px rgba(255, 255, 255, 0.1);
-            border: 1px solid #555; /* رمادي غامق */
-            background: #333; /* خلفية الإطار */
+                0 0 25px rgba(192, 192, 192, 0.7),
+                inset 0 0 15px rgba(255, 255, 255, 0.3);
+            border: 1px solid #c0c0c0;
+            background: #333;
+            position: relative;
+        }
+
+        .video-container::after {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px solid rgba(192, 192, 192, 0.3);
+            border-radius: 12px;
+            pointer-events: none;
+            animation: borderGlow 3s infinite alternate;
+        }
+
+        @keyframes borderGlow {
+            from { border-color: rgba(192, 192, 192, 0.3); }
+            to { border-color: rgba(255, 255, 255, 0.7); }
         }
 
         iframe {
@@ -76,21 +92,22 @@
             display: block;
         }
 
-        /* تذييل الصفحة بلون باهت */
+        /* Subtle Footer */
         footer {
-            margin-top: 20px;
+            margin-top: 25px;
             font-size: 0.8rem;
-            color: #888; /* رمادي باهت */
+            color: #999;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
         }
     </style>
 </head>
 <body>
-    <h1>راديو درايف | البث المباشر</h1>
+    <h1>RadioDrive Live</h1>
     
     <div class="video-container">
         <iframe src="https://drive.google.com/file/d/VIDEO_ID/preview" allow="autoplay" allowfullscreen></iframe>
     </div>
 
-    <footer>البث المباشر من جوجل درايف</footer>
+    <footer>Streaming powered by Google Drive</footer>
 </body>
 </html>

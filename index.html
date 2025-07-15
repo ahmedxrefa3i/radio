@@ -1,17 +1,136 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Radio Drive</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎙️ راديو درايف | البث المباشر</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: white;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            background: linear-gradient(90deg, #ff6b6b, #f8a5c2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .player-container {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+        }
+        iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        button {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background: #ff4757;
+            transform: scale(1.1);
+        }
+        .playlist {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .playlist-item {
+            padding: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .playlist-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        footer {
+            margin-top: auto;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.8em;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        /* تأثيرات إضافية */
+        .glow {
+            animation: glow 2s infinite alternate;
+        }
+        @keyframes glow {
+            from { box-shadow: 0 0 10px #ff6b6b; }
+            to { box-shadow: 0 0 20px #f8a5c2; }
+        }
+    </style>
 </head>
 <body>
-  <div class="background-overlay"></div>
-  <div class="content">
-    <h1>🎧 Radio Drive</h1>
-    <iframe src="https://drive.google.com/file/d/معرّف_الفيديو/preview" allow="autoplay" allowfullscreen></iframe>
-    <p>سيتم التشغيل تلقائيًا</p>
-  </div>
+    <header>
+        <h1>🎧 راديو درايف | البث المباشر</h1>
+    </header>
+
+    <div class="player-container glow">
+        <!-- هنا IFrame للبث المباشر (مثال) -->
+        <iframe src="https://drive.google.com/embedded?vid=YOUR_VIDEO_ID" allowfullscreen></iframe>
+    </div>
+
+    <div class="controls">
+        <button id="playBtn">▶️ تشغيل</button>
+        <button id="pauseBtn">⏸ إيقاف</button>
+        <button id="nextBtn">⏭ التالي</button>
+    </div>
+
+    <div class="playlist">
+        <div class="playlist-item" data-video="VIDEO_ID_1">🎵 حلقة اليوم: المستقبل اللي فاتنا!</div>
+        <div class="playlist-item" data-video="VIDEO_ID_2">🎙️ نقاش ساخن: الذكاء الاصطناعي يحكم العالم؟</div>
+        <div class="playlist-item" data-video="VIDEO_ID_3">🔥 الأغنية الأكثر طلباً: "مش ناوي أنساك"</div>
+    </div>
+
+    <footer>
+        © 2025 راديو درايف | تم التطوير بواسطة <span style="color: #ff6b6b;">أنت</span> و<span style="color: #ff6b6b;">ChatGPT</span>
+    </footer>
+
+    <script>
+        // هنا كود JavaScript للتحكم في التشغيل (مثال بسيط)
+        document.getElementById('playBtn').addEventListener('click', () => {
+            alert('بدأ البث! (هنا هتتحكم في الـIFrame بشكل حقيقي)');
+        });
+    </script>
 </body>
 </html>
